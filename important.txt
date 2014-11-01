@@ -1,0 +1,13 @@
+修改了编译过程
+1.不需要在根目录执行. build/envsetup.sh，改为在device目录(或者你的机型所在目录)执行. setenv.sh
+2.请修改makefile里面的author，channel不需要修改
+3.修改device(或者当前机型目录)中的apps.mk：
+	APPS_NEED_RESIGN：将会被重新签名的apk列表
+	APPS_NOT_RESIGN：不会被重新签名的apk列表，主要是一些需要自升级的apk以及一些有权限关联的apk
+	APPS_EXTRA：由于部分机器system分区较小，这些apk可以放到data/app目录，会被重新签名
+	APPS_MTK_ONLY/APPS_QCOM_ONLY：各个平台的特殊apk，目前只有phone，会被重新签名
+	APPS_KEEP_ORIGIN：需要保留的原底包的apk，目前有bluetooth、camera、fusedlocation、(mediaprovider MTK的这个推荐使用原底包的)，会被重新签名
+	格式如下所示（XXX为apk名字）：
+	APPS_NEED_RESIGN:=  xxx.apk \
+						xxx.apk \
+						xxx.apk
