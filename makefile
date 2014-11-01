@@ -139,4 +139,13 @@ clean :
 	rm -rf new-update/
 	rm -rf tmp_system
 	rm -rf *.log
-	
+clean-all :
+	rm -rf update/
+	rm -rf new-update/
+	rm -rf tmp_system
+	rm -rf apps/
+	rm -rf custom-update/
+	rm -rf out/
+	rm -rf smali/
+	rm -rf temp/
+	rm -rf *.log
